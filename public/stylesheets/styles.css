@@ -1,0 +1,52 @@
+* {
+	font-family: 'Muli', sans-serif;
+}
+
+.card-img-top{
+	height: 50%;
+}
+
+.class-btn {
+	justify-content: space-between;
+}
+
+.class-form {
+	width: 30%;
+	border: 1px solid;
+	border-radius: 25px;
+	margin-top: 5%;
+	padding: 50px;;
+}
+
+.class-input {
+	padding-top: 30px;
+}
+
+.container {
+	text-align:center;
+}
+
+.register {
+	text-align: left;
+	border: 1px solid;
+	border-radius: 25px;
+	padding: 50px;
+}
+
+.students {
+	text-align: left;
+}
+
+#delete-student {
+	display: inline
+}
+
+#loading {
+	align-items: center;
+}
+
+#student {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}

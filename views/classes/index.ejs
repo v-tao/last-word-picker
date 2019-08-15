@@ -1,0 +1,22 @@
+<% include ../partials/header%>
+<div class="container">
+	<h1 class="mb-1">
+	Classes Page
+	</h1>
+	<a class="btn btn-success my-3" href="/classes/new">Create New Class</a>
+	<div class="row">
+	<% classes.forEach(function(selectedClass){ %>
+		<div class="col-md-3 mb-4" style="display:flex; flex-wrap: wrap;">
+			<div class="card pb-0" style="width: 18rem;">
+				<img class="card-img-top " src="<%=selectedClass.image%>" alt="Card image cap">
+				<div class="card-body pt-4">
+					<h5 class="card-title"><%=selectedClass.name%></h5>
+					<a href="/classes/<%=selectedClass.id%>" class="btn btn-primary btn-sm">Visit Classroom</a>
+				</div>
+			</div>
+		</div>
+	<% }) %>
+	</div>
+</div>
+
+<% include ../partials/footer%>

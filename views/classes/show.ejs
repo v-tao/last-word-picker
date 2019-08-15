@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+<div class="container">
+	<div class="card mt-0 mb-3">
+	  <img style="height: 15rem" class="card-img-top" src="<%=selectedClass.image%>" alt="Card image cap">
+	  <div class="card-body">
+		<h5 class="card-title"><%=selectedClass.name%></h5>
+		<p>
+			<em>Created by <%=selectedClass.author.username%></em>
+		</p>
+	  </div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 students">
+			<h2>
+				Students
+			</h2>
+			<% if(currentUser && selectedClass.author.id.equals(currentUser._id)){ %>
+				<form class="mb-2" action="/classes/<%=selectedClass._id%>" method="POST">
+				  <div class="form-row">
+					<div class="col-md-9">
+					  <input type="text" name="name" class="form-control" placeholder="Student Name">
+					</div>
+					<div class="col-md-3">
+					  <button class="btn btn-primary">
+						  Add
+					  </button>
+					</div>
+				  </div>
+				</form>
+			<% } %>
+			<ul class="list-group">
+				<%selectedClass.students.forEach(function(student){ %>
+				<li class="list-group-item" id="student">
+					<%=student.name%><% if(currentUser && selectedClass.author.id.equals(currentUser._id)){ %>
+						<form id="delete-student" action="/classes/<%=selectedClass._id%>/students/<%=student._id%>?_method=DELETE" method="POST"><input type="submit" value="Delete" class="btn btn-outline-danger btn-sm"></form>
+					<% } %>
+				</li>
+				<% }) %>
+			</ul>
+		</div>
+		<div class="col-md-8">
+			<div class="card mt-3 mb-3">
+				<div class="card-body">
+					<p class="card-text"><%=selectedClass.description%></p>
+				</div>
+			</div>
+			<% if(currentUser && selectedClass.author.id.equals(currentUser._id)){ %>
+				<a class="btn btn-large btn-warning class-btn" href="/classes/<%=selectedClass._id%>/edit">
+					Edit Class
+				</a>
+			<% } %>
+			
+			<a class="btn btn-large btn-info class-btn" href="/classes/<%=selectedClass._id%>/choose">
+				Pick Last Word
+			</a>
+		</div>
+	</div>
+</div>
+<script>
+	$(".fa-trash-alt").on("click", function(){
+		
+	})
+</script>
+<% include ../partials/footer %>
