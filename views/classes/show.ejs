@@ -2,9 +2,9 @@
 <div class="container">
 	<div class="card mt-0 mb-3">
 		<% if(selectedClass.image){ %>
-			<img class="card-img-top" src="<%=selectedClass.image%>" alt="Card image cap" style="height: 15rem">
+			<img style="height: 15rem;" class="card-img-top" src="<%=selectedClass.image%>" alt="Card image cap">
 		<% }  else { %>
-			<img style="height: 15rem" class="card-img-top" src="https://images.unsplash.com/photo-1510531704581-5b2870972060?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" alt="Card image cap">
+			<img style="height: 15rem" class="card-img-top" src="https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&auto=format&fit=crop&w=2110&q=80" alt="Card image cap">
 		<% } %>
 		<div class="card-body">
 			<h5 class="card-title"><%=selectedClass.name%></h5>
