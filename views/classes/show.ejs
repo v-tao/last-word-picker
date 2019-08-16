@@ -1,13 +1,17 @@
 <% include ../partials/header %>
 <div class="container">
 	<div class="card mt-0 mb-3">
-	  <img style="height: 15rem" class="card-img-top" src="<%=selectedClass.image%>" alt="Card image cap">
-	  <div class="card-body">
-		<h5 class="card-title"><%=selectedClass.name%></h5>
-		<p>
-			<em>Created by <%=selectedClass.author.username%></em>
-		</p>
-	  </div>
+		<% if(selectedClass.image){ %>
+			<img class="card-img-top" src="<%=selectedClass.image%>" alt="Card image cap" style="height: 15rem">
+		<% }  else { %>
+			<img style="height: 15rem" class="card-img-top" src="https://images.unsplash.com/photo-1510531704581-5b2870972060?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80" alt="Card image cap">
+		<% } %>
+		<div class="card-body">
+			<h5 class="card-title"><%=selectedClass.name%></h5>
+			<p>
+				<em>Created by <%=selectedClass.author.username%></em>
+			</p>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4 students">
@@ -21,14 +25,14 @@
 					  <input type="text" name="name" class="form-control" placeholder="Student Name">
 					</div>
 					<div class="col-md-3">
-					  <button class="btn btn-primary">
+					  <button class="btn btn-submit">
 						  Add
 					  </button>
 					</div>
 				  </div>
 				</form>
 			<% } %>
-			<ul class="list-group">
+			<ul class="list-group mb-4">
 				<%selectedClass.students.forEach(function(student){ %>
 				<li class="list-group-item" id="student">
 					<%=student.name%><% if(currentUser && selectedClass.author.id.equals(currentUser._id)){ %>
@@ -39,11 +43,13 @@
 			</ul>
 		</div>
 		<div class="col-md-8">
-			<div class="card mt-3 mb-3">
+			<% if (selectedClass.description){ %>
+			<div class="card mt-0 mb-3">
 				<div class="card-body">
 					<p class="card-text"><%=selectedClass.description%></p>
 				</div>
 			</div>
+			<% } %>
 			<% if(currentUser && selectedClass.author.id.equals(currentUser._id)){ %>
 				<a class="btn btn-large btn-warning class-btn" href="/classes/<%=selectedClass._id%>/edit">
 					Edit Class
@@ -56,9 +62,4 @@
 		</div>
 	</div>
 </div>
-<script>
-	$(".fa-trash-alt").on("click", function(){
-		
-	})
-</script>
 <% include ../partials/footer %>

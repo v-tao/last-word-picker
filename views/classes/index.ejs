@@ -1,9 +1,12 @@
 <% include ../partials/header%>
 <div class="container">
-	<h1 class="mb-1">
-	Classes Page
-	</h1>
-	<a class="btn btn-success my-3" href="/classes/new">Create New Class</a>
+	<div class="jumbotron">
+		  <h1 class="display-4">Welcome to the Last Word Picker!</h1>
+		  <p class="lead">A website dedicated to enhancing the classroom experience</p>
+		  <hr class="my-4">
+		  <p>Get started by creating a class below</p>
+		  <a class="btn btn-submit btn-lg" href="/classes/new" role="button">Create New Class</a>
+		</div>
 	<div class="row">
 	<% classes.forEach(function(selectedClass){ %>
 		<div class="col-md-3 mb-4" style="display:flex; flex-wrap: wrap;">
@@ -11,7 +14,7 @@
 				<img class="card-img-top " src="<%=selectedClass.image%>" alt="Card image cap">
 				<div class="card-body pt-4">
 					<h5 class="card-title"><%=selectedClass.name%></h5>
-					<a href="/classes/<%=selectedClass.id%>" class="btn btn-primary btn-sm">Visit Classroom</a>
+					<a href="/classes/<%=selectedClass.id%>" class="btn btn-submit btn-sm">Visit Classroom</a>
 				</div>
 			</div>
 		</div>
