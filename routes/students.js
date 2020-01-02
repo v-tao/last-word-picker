@@ -1,5 +1,6 @@
 const express = require("express"),
 	  router  = express.Router(),
+	  mongoose = require("mongoose"),
 	  Class   = require("../models/class"),
 	  Student = require("../models/student"),
 	  middleware = require("../middleware");
